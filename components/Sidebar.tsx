@@ -24,7 +24,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: "Videos",
+    label: "Recent videos",
     href: "/dashboard/videos",
     icon: Youtube,
   },

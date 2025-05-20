@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Upload,
@@ -15,6 +16,7 @@ import {
   Linkedin,
   Github,
 } from "lucide-react";
+import { signIn } from "next-auth/react";
 
 function App() {
   return (
@@ -27,7 +29,9 @@ function App() {
               <div className="absolute inset-0 bg-purple-500 rounded-full blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
               <Zap className="w-8 h-8 text-purple-400 relative" />
             </div>
-            <span className="text-2xl font-extrabold gradient-text">100xPublish</span>
+            <span className="text-2xl font-extrabold gradient-text">
+              100xPublish
+            </span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <a
@@ -48,7 +52,12 @@ function App() {
             >
               Testimonials
             </a>
-            <button className="glass-card px-6 py-2 text-purple-300 hover:text-white rounded-full transition-all duration-300 hover:scale-105 border border-purple-500/30 hover:border-purple-500/50 font-semibold">
+            <button
+              onClick={() =>
+                signIn("google", { callbackUrl: "/dashboard/videos" })
+              }
+              className="glass-card px-6 py-2 text-purple-300 hover:text-white rounded-full transition-all duration-300 hover:scale-105 border border-purple-500/30 hover:border-purple-500/50 font-semibold"
+            >
               Get Started
             </button>
           </div>
