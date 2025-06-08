@@ -14,7 +14,7 @@ export async function middleware(request: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  console.log("Token:", token);
+  // console.log("Token:", token);
   if (pathname === "/" && token) {
     return NextResponse.redirect(new URL("/dashboard/videos", request.url));
   }
